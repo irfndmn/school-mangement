@@ -2,6 +2,7 @@ package com.schoolmanagement.domain.concrete;
 
 import com.schoolmanagement.domain.abstracts.User;
 import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 

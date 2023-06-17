@@ -1,4 +1,5 @@
 package com.schoolmanagement.domain.concrete;
+
 import com.schoolmanagement.domain.abstracts.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,7 +22,12 @@ public class Student extends User {
 
     private String fatherName;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)   // biz olusturtabiliriz
+
+    @GeneratedValue(generator = "sequencegen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "sequencegen",
+            sequenceName = "student_seq",
+            initialValue = 2023,
+            allocationSize = 3)
     private int studentNumber;
 
 
