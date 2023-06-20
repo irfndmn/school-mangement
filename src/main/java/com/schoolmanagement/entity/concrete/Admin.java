@@ -1,6 +1,6 @@
-package com.schoolmanagement.domain.concrete;
+package com.schoolmanagement.entity.concrete;
 
-import com.schoolmanagement.domain.abstracts.User;
+import com.schoolmanagement.entity.abstracts.User;
 import lombok.*;
 
 import javax.persistence.Entity;

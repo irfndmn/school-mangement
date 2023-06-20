@@ -1,4 +1,4 @@
-package com.schoolmanagement.domain.enums;
+package com.schoolmanagement.entity.enums;
 
 public enum userRole {
 

@@ -1,6 +1,6 @@
-package com.schoolmanagement.domain.concrete;
+package com.schoolmanagement.entity.concrete;
 
-import com.schoolmanagement.domain.abstracts.User;
+import com.schoolmanagement.entity.abstracts.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

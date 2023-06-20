@@ -1,7 +1,7 @@
-package com.schoolmanagement.domain.abstracts;
+package com.schoolmanagement.entity.abstracts;
 
-import com.schoolmanagement.domain.enums.Gender;
-import com.schoolmanagement.domain.enums.userRole;
+import com.schoolmanagement.entity.enums.Gender;
+import com.schoolmanagement.entity.enums.userRole;
 
 import javax.persistence.*;
 import java.time.LocalDate;
