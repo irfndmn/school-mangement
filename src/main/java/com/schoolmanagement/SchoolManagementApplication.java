@@ -1,7 +1,6 @@
 package com.schoolmanagement;
 
 
-import com.schoolmanagement.entity.concrete.ContactMessage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

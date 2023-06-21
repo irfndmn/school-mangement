@@ -1,13 +1,11 @@
-package com.schoolmanagement.entity.concrete;
+package com.schoolmanagement.entity;
 
-import com.schoolmanagement.entity.abstracts.User;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+
 
 @Entity
-@Table(name = "t_admin")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

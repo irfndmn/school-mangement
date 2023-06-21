@@ -1,5 +1,6 @@
-package com.schoolmanagement.entity.concrete;
+package com.schoolmanagement.entity;
 
+import com.schoolmanagement.dto.ContactMessageDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,12 +39,17 @@ public class ContactMessage {
     private LocalDate date=formattedType(LocalDate.now());  // LocalDate normalde
 
 
-    public LocalDate formattedType(LocalDate localDate){
-
+    public static LocalDate formattedType(LocalDate localDate){
         DateTimeFormatter dtf=DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
         return LocalDate.parse(dtf.format(localDate));
     }
 
+
+    public ContactMessage(ContactMessageDTO contactMessageDTO) {
+        this.name=contactMessageDTO.getName();
+        this.email=contactMessageDTO.getEmail();
+        this.message=contactMessageDTO.getMessage();
+        this.subject=contactMessageDTO.getSubject();
+    }
 
 }

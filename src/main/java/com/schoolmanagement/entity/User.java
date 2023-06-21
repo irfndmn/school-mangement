@@ -1,12 +1,20 @@
-package com.schoolmanagement.entity.abstracts;
+package com.schoolmanagement.entity;
 
 import com.schoolmanagement.entity.enums.Gender;
-import com.schoolmanagement.entity.enums.userRole;
+import com.schoolmanagement.entity.enums.UserRole;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @MappedSuperclass
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public abstract class User {
 
     @Id
@@ -29,7 +37,7 @@ public abstract class User {
 
     private String password;
 
-    private userRole userRole;
+    private UserRole userRole;
 
     @Column(unique = true)
     private String phoneNumber;

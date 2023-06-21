@@ -1,5 +1,5 @@
 package com.schoolmanagement.dto;
-
+import com.schoolmanagement.entity.ContactMessage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,4 +29,12 @@ public class ContactMessageDTO {
 
     @NotBlank
     private String message;
+
+    public ContactMessageDTO(ContactMessage contactMessage) {
+        this.message=contactMessage.getMessage();
+        this.email=contactMessage.getEmail();
+        this.name=contactMessage.getName();
+        this.subject=contactMessage.getSubject();
+    }
+
 }

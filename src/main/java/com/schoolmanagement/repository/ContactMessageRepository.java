@@ -1,7 +1,7 @@
 package com.schoolmanagement.repository;
 
 
-import com.schoolmanagement.entity.concrete.ContactMessage;
+import com.schoolmanagement.entity.ContactMessage;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
