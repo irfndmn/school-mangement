@@ -1,6 +1,7 @@
 package com.schoolmanagement.entity;
 
-import com.schoolmanagement.dto.ContactMessageDTO;
+import com.schoolmanagement.dto.ContactMessageRequest;
+import com.schoolmanagement.dto.ContactMessageResponse;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class ContactMessage {
 
     @Email
     @NotNull
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String email;
 
     private String subject;
@@ -44,12 +45,10 @@ public class ContactMessage {
         return LocalDate.parse(dtf.format(localDate));
     }
 
-
-    public ContactMessage(ContactMessageDTO contactMessageDTO) {
-        this.name=contactMessageDTO.getName();
-        this.email=contactMessageDTO.getEmail();
-        this.message=contactMessageDTO.getMessage();
-        this.subject=contactMessageDTO.getSubject();
+    public ContactMessage(ContactMessageRequest contactMessageRequest) {
+        this.name= contactMessageRequest.getName();
+        this.email= contactMessageRequest.getEmail();
+        this.message= contactMessageRequest.getMessage();
+        this.subject= contactMessageRequest.getSubject();
     }
-
 }

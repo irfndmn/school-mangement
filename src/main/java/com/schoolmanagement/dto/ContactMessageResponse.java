@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ContactMessageDTO {
+public class ContactMessageResponse {
 
     @NotNull
     @Size(min = 3,max = 50,message = "name must be between {min} and {max}")
@@ -30,11 +30,12 @@ public class ContactMessageDTO {
     @NotBlank
     private String message;
 
-    public ContactMessageDTO(ContactMessage contactMessage) {
+    public ContactMessageResponse(ContactMessage contactMessage) {
         this.message=contactMessage.getMessage();
         this.email=contactMessage.getEmail();
         this.name=contactMessage.getName();
         this.subject=contactMessage.getSubject();
     }
+
 
 }
