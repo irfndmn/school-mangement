@@ -28,28 +28,27 @@ public class ContactMessageService {
 
     public List<ContactMessageResponse> getContactMessages() {
 
-
             List<ContactMessage> contactMessagesList=contactMessageRepository.findAll();
 
             return contactMessagesList.stream().map(ContactMessageResponse::new).collect(Collectors.toList());
 
-
     }
 
 
 
 
-    public Page<ContactMessageResponse> getContactMessageByEmail( String email, Pageable pageable) {             // ContactMessageService
-//repo.findBy(parent, new PageRequest(page, size));
-      //Page<ContactMessage> contactMessages= contactMessageRepository.findAllByEmail(email,pageable);
-      Page<ContactMessage> contactMessages= contactMessageRepository.findAllByEmail(email,pageable);
+    public Page<ContactMessageResponse> getContactMessageByEmail( String email, Pageable pageable) {
 
+      Page<ContactMessage> contactMessages= contactMessageRepository.findAllByEmail(email,pageable);
 
         return contactMessages.map(ContactMessageResponse::new);
 
-
     }
 
 
+    public Page<ContactMessageResponse> getContactMessageBySubject(String subject, Pageable pageable) {
+        Page<ContactMessage> contactMessages= contactMessageRepository.findAllBySubject(subject,pageable);
 
+        return contactMessages.map(ContactMessageResponse::new);
+    }
 }

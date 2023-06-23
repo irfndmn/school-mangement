@@ -56,20 +56,29 @@ public class ContactMessageController {
 
 
 
-    @GetMapping("/searchByEmail")
-    public ResponseEntity<Page<ContactMessageResponse>> searchByEmail(@RequestParam String email,                                     //ContactMessageController
-                                                                      @RequestParam( "page") int page,
-                                                                      @RequestParam( "size") int size,
-                                                                      @RequestParam("sort") String prop,
-                                                                      @RequestParam ("direction")Sort.Direction direction){
+    @GetMapping("/searchBy")
+    public ResponseEntity<Page<ContactMessageResponse>> searchContactMessages(
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) String subject,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "5") int size,
+            @RequestParam(value = "sort", required = false) String prop,
+            @RequestParam(value = "direction", defaultValue = "ASC") Sort.Direction direction) {
 
-        Pageable pageable= PageRequest.of(page,size,Sort.by(direction,prop));
+        Pageable pageable = PageRequest.of(page, size, direction, prop);
 
-        Page<ContactMessageResponse> contactMessageResponses=contactMessageService.getContactMessageByEmail(email,pageable);
+        Page<ContactMessageResponse> contactMessageResponses;
 
+        if (email != null) {
+            contactMessageResponses = contactMessageService.getContactMessageByEmail(email, pageable);
+        } else if (subject != null) {
+            contactMessageResponses = contactMessageService.getContactMessageBySubject(subject, pageable);
+        } else {
 
-        return new ResponseEntity<>(contactMessageResponses,HttpStatus.OK);
+            return ResponseEntity.badRequest().build();
+        }
 
+        return ResponseEntity.ok(contactMessageResponses);
     }
 
 
