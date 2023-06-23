@@ -39,13 +39,17 @@ public class ContactMessageService {
 
 
 
-    public Page<ContactMessageResponse> getContactMessageByEmail( String email, Pageable pageable) {
+    public Page<ContactMessageResponse> getContactMessageByEmail( String email, Pageable pageable) {             // ContactMessageService
 //repo.findBy(parent, new PageRequest(page, size));
+      //Page<ContactMessage> contactMessages= contactMessageRepository.findAllByEmail(email,pageable);
       Page<ContactMessage> contactMessages= contactMessageRepository.findAllByEmail(email,pageable);
 
 
-     return contactMessages.map(ContactMessageResponse::new);
+        return contactMessages.map(ContactMessageResponse::new);
 
 
     }
+
+
+
 }

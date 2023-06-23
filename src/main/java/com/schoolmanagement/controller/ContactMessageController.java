@@ -1,6 +1,7 @@
 package com.schoolmanagement.controller;
 import com.schoolmanagement.dto.ContactMessageRequest;
 import com.schoolmanagement.dto.ContactMessageResponse;
+import com.schoolmanagement.entity.ContactMessage;
 import com.schoolmanagement.service.ContactMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -56,10 +57,11 @@ public class ContactMessageController {
 
 
     @GetMapping("/searchByEmail")
-    public ResponseEntity<Page<ContactMessageResponse>> searchByEmail(@RequestParam( "page") int page,
+    public ResponseEntity<Page<ContactMessageResponse>> searchByEmail(@RequestParam String email,                                     //ContactMessageController
+                                                                      @RequestParam( "page") int page,
                                                                       @RequestParam( "size") int size,
                                                                       @RequestParam("sort") String prop,
-                                                                      @RequestParam ("direction")Sort.Direction direction, @RequestBody String email){
+                                                                      @RequestParam ("direction")Sort.Direction direction){
 
         Pageable pageable= PageRequest.of(page,size,Sort.by(direction,prop));
 
